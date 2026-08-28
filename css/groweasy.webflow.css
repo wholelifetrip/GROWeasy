@@ -6,6 +6,48 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: ImpactCondensed;
+  src: url('../fonts/ImpactCondensed.woff2') format("woff2"),
+       url('../fonts/ImpactCondensed.woff') format("woff"),
+       url('../fonts/ImpactCondensed.ttf') format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: CalibriLocal;
+  src: url('../fonts/calibri-regular.ttf') format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: CalibriLocal;
+  src: url('../fonts/calibri-bold.ttf') format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: CalibriLocal;
+  src: url('../fonts/calibri-italic.ttf') format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: CalibriLocal;
+  src: url('../fonts/calibri-bold-italic.ttf') format("truetype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
 .w-layout-blockcontainer {
   max-width: 940px;
   margin-left: auto;
@@ -618,7 +660,7 @@ html, body {
   text-transform: uppercase;
   width: 59%;
   margin: 0;
-  font-family: Oswald, Impact, "Arial Narrow", sans-serif;
+  font-family: ImpactCondensed, Oswald, Impact, "Arial Narrow", sans-serif;
   font-size: clamp(18px, 2.35vw, 34px);
   font-weight: 700;
   line-height: 1;
@@ -636,7 +678,7 @@ html, body {
   text-transform: uppercase;
   width: 61%;
   margin: 0;
-  font-family: Oswald, Impact, "Arial Narrow", sans-serif;
+  font-family: ImpactCondensed, Oswald, Impact, "Arial Narrow", sans-serif;
   font-size: clamp(16px, 2.05vw, 30px);
   font-weight: 700;
   line-height: 1.08;
@@ -797,7 +839,7 @@ html, body {
   color: #1f6857;
   text-align: center;
   margin: 0 0 clamp(28px, 4vw, 48px);
-  font-family: Oswald, Impact, "Arial Narrow", sans-serif;
+  font-family: ImpactCondensed, Oswald, Impact, "Arial Narrow", sans-serif;
   font-size: clamp(48px, 7vw, 96px);
   font-weight: 700;
   line-height: .98;
@@ -822,7 +864,7 @@ html, body {
   color: #2b9f83;
   margin-top: 0;
   margin-bottom: 18px;
-  font-family: Oswald, Impact, "Arial Narrow", sans-serif;
+  font-family: ImpactCondensed, Oswald, Impact, "Arial Narrow", sans-serif;
   font-size: clamp(26px, 3vw, 40px);
   font-weight: 700;
   line-height: 1;
@@ -920,7 +962,7 @@ html, body {
   color: #2b9f83;
   text-transform: uppercase;
   margin: 0 0 14px;
-  font-family: Oswald, Impact, "Arial Narrow", sans-serif;
+  font-family: ImpactCondensed, Oswald, Impact, "Arial Narrow", sans-serif;
   font-size: clamp(54px, 8vw, 108px);
   line-height: .95;
 }
@@ -1030,7 +1072,7 @@ html, body {
   color: #2b9f83;
   text-transform: uppercase;
   margin: 0 0 18px;
-  font-family: Oswald, Impact, "Arial Narrow", sans-serif;
+  font-family: ImpactCondensed, Oswald, Impact, "Arial Narrow", sans-serif;
   font-size: clamp(50px, 8vw, 104px);
   line-height: .95;
 }
@@ -1047,7 +1089,7 @@ html, body {
 .legal-panel h2 {
   color: #2b9f83;
   margin: 28px 0 8px;
-  font-family: Oswald, Impact, "Arial Narrow", sans-serif;
+  font-family: ImpactCondensed, Oswald, Impact, "Arial Narrow", sans-serif;
   font-size: clamp(26px, 3vw, 38px);
   line-height: 1.05;
 }
@@ -1125,7 +1167,7 @@ html, body {
   text-transform: uppercase;
   margin-top: 0;
   margin-bottom: 24px;
-  font-family: Oswald, Impact, "Arial Narrow", sans-serif;
+  font-family: ImpactCondensed, Oswald, Impact, "Arial Narrow", sans-serif;
   font-size: clamp(62px, 7vw, 112px);
   font-weight: 700;
   line-height: .95;
