@@ -19,6 +19,16 @@
     var mykoPopupTrigger = document.querySelector(".myko-popup-trigger");
     var mykoPopupClose = document.querySelector(".pop-up-myko .image-4");
     var productCardLinks = document.querySelectorAll(".product-card-link");
+    var heroScrollArrow = document.querySelector(".hero-scroll-arrow");
+    var introSection = document.getElementById("Intro");
+    var schemaOpenButton = document.querySelector(".schema-open-button");
+    var schemaPopup = document.querySelector(".schema-popup");
+    var schemaPopupClose = document.querySelector(".schema-popup-close");
+    var shopList = document.querySelector(".shop-list");
+    var shopSearchForm = document.querySelector(".shop-search-form");
+    var shopAddressInput = document.querySelector(".shop-address-input");
+    var contactForm = document.querySelector(".contact-form");
+    var contactFormStatus = document.querySelector(".contact-form-status");
 
     function showBioPaperAttention() {
       bioBlockTriggers.forEach(function (trigger) {
@@ -57,6 +67,25 @@
       window.requestAnimationFrame(checkScroll);
     }
 
+    function scrollToTarget(target, hash) {
+      if (!target) {
+        return;
+      }
+
+      var navbar = document.querySelector(".navbar");
+      var navbarHeight = navbar ? navbar.getBoundingClientRect().height : 0;
+      var targetTop = Math.max(0, window.pageYOffset + target.getBoundingClientRect().top - navbarHeight);
+
+      if (hash) {
+        window.history.replaceState(null, "", hash);
+      }
+
+      window.scrollTo({
+        top: targetTop,
+        behavior: "smooth"
+      });
+    }
+
     if (bioNavLink && bioHeading) {
       bioNavLink.addEventListener("click", function (event) {
         var navbar = document.querySelector(".navbar");
@@ -70,6 +99,13 @@
           behavior: "smooth"
         });
         showAttentionAfterScroll(targetTop);
+      });
+    }
+
+    if (heroScrollArrow && introSection) {
+      heroScrollArrow.addEventListener("click", function (event) {
+        event.preventDefault();
+        scrollToTarget(introSection, "#Intro");
       });
     }
 
@@ -124,6 +160,31 @@
       }
     }
 
+    function openSchemaPopup(event) {
+      if (!schemaPopup) {
+        return;
+      }
+
+      event.preventDefault();
+      schemaPopup.style.display = "flex";
+      schemaPopup.setAttribute("aria-hidden", "false");
+      if (schemaPopupClose) {
+        schemaPopupClose.focus();
+      }
+    }
+
+    function closeSchemaPopup() {
+      if (!schemaPopup) {
+        return;
+      }
+
+      schemaPopup.style.display = "none";
+      schemaPopup.setAttribute("aria-hidden", "true");
+      if (schemaOpenButton) {
+        schemaOpenButton.focus();
+      }
+    }
+
     function addKeyboardClick(element, callback) {
       if (!element) {
         return;
@@ -149,6 +210,24 @@
       addKeyboardClick(mykoPopupClose, closeMykoPopup);
     }
 
+    if (schemaOpenButton) {
+      schemaOpenButton.addEventListener("click", openSchemaPopup);
+      addKeyboardClick(schemaOpenButton, openSchemaPopup);
+    }
+
+    if (schemaPopupClose) {
+      schemaPopupClose.addEventListener("click", closeSchemaPopup);
+      addKeyboardClick(schemaPopupClose, closeSchemaPopup);
+    }
+
+    if (schemaPopup) {
+      schemaPopup.addEventListener("click", function (event) {
+        if (event.target === schemaPopup) {
+          closeSchemaPopup();
+        }
+      });
+    }
+
     productCardLinks.forEach(function (card) {
       function openProductDetail(event) {
         var targetUrl = card.getAttribute("data-product-url");
@@ -165,8 +244,64 @@
       addKeyboardClick(card, openProductDetail);
     });
 
+    if (shopList) {
+      fetch("shops.json")
+        .then(function (response) {
+          if (!response.ok) {
+            throw new Error("Shopdaten konnten nicht geladen werden.");
+          }
+
+          return response.json();
+        })
+        .then(function (data) {
+          var shops = data.onlineShops || [];
+
+          shopList.innerHTML = "";
+          shops.forEach(function (shop) {
+            var item = document.createElement(shop.url && shop.url !== "#" ? "a" : "div");
+            item.className = "shop-item";
+
+            if (shop.url && shop.url !== "#") {
+              item.href = shop.url;
+              item.target = "_blank";
+              item.rel = "noopener";
+            }
+
+            item.innerHTML = "<strong></strong><span></span>";
+            item.querySelector("strong").textContent = shop.name || "Shop folgt";
+            item.querySelector("span").textContent = shop.note || "";
+            shopList.appendChild(item);
+          });
+        })
+        .catch(function () {
+          shopList.innerHTML = '<div class="shop-item"><strong>Shopliste folgt</strong><span>Die Datenquelle wird vorbereitet.</span></div>';
+        });
+    }
+
+    if (shopSearchForm && shopAddressInput) {
+      shopSearchForm.addEventListener("submit", function (event) {
+        var address = shopAddressInput.value.trim();
+        var query = address ? "GROW easy Dünger near " + address : "GROW easy Dünger";
+
+        event.preventDefault();
+        window.open("https://www.google.com/maps/search/" + encodeURIComponent(query), "_blank", "noopener");
+      });
+    }
+
+    if (contactForm && contactFormStatus) {
+      contactForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        contactFormStatus.textContent = "Danke! Das Formular ist vorbereitet. Der Mailversand wird im nächsten Schritt eingerichtet.";
+      });
+    }
+
     document.addEventListener("keydown", function (event) {
       if (event.key !== "Escape") {
+        return;
+      }
+
+      if (isVisible(schemaPopup)) {
+        closeSchemaPopup();
         return;
       }
 

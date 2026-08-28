@@ -1,0 +1,15 @@
+{
+  "onlineShops": [
+    {
+      "name": "Onlineshop folgt",
+      "url": "#",
+      "note": "Hier kann spaeter der erste Haendler eingetragen werden."
+    },
+    {
+      "name": "Partner-Shop folgt",
+      "url": "#",
+      "note": "Die Liste kann spaeter aus Google Sheets, Airtable oder einer API kommen."
+    }
+  ],
+  "localShops": []
+}

@@ -24,7 +24,7 @@
       <nav role="navigation" class="w-nav-menu">
         <a href="#Produkt" class="w-nav-link">Produkt</a>
         <a href="#Bio" class="w-nav-link bio-nav-link">Bio?</a>
-        <a href="#" class="w-nav-link">Kontakt</a>
+        <a href="kontakt.html" class="w-nav-link">Kontakt</a>
       </nav>
       <div class="w-nav-button">
         <div class="w-icon-nav-menu"></div>
@@ -33,6 +33,7 @@
   </div>
   <section class="section">
     <div class="w-layout-blockcontainer container-6 w-container"></div>
+    <a href="#Intro" class="hero-scroll-arrow" aria-label="Zu Alles was du brauchst scrollen"><img src="images/pfeil-nach-unten-duengerstil.png" loading="eager" alt="" class="hero-scroll-arrow-image"></a>
   </section>
   <section id="Intro" class="section-2">
     <div class="w-layout-blockcontainer container-2 w-container"><img src="images/Alles-fuer-praechtige-Pflanzen-final2.png" loading="lazy" sizes="100vw" alt="" class="image-2"></div>
@@ -83,6 +84,44 @@
         <div class="bloom-slogan">Mit BLOOMeasy zu<br>prächtige Blüten,<br>natürlich und mühelos!</div>
       </div>
     </div>
+    <div class="schema-action-wrap">
+      <button type="button" class="schema-open-button">Düngeschema öffnen</button>
+    </div>
+    <div class="schema-popup" aria-hidden="true">
+      <div class="schema-popup-panel"><button type="button" class="schema-popup-close" aria-label="Düngeschema schließen"><img src="images/X.png" loading="lazy" alt=""></button>
+        <div class="schema-popup-actions">
+          <a href="documents/Duengeschema-GROWeasy.pdf" class="schema-download-button" download>PDF herunterladen</a>
+        </div>
+        <iframe src="documents/Duengeschema-GROWeasy.pdf#view=FitH" title="Düngeschema GROW easy" class="schema-pdf-frame"></iframe>
+      </div>
+    </div>
+    <section class="finder-section" aria-labelledby="finder-heading">
+      <div class="finder-inner">
+        <h1 id="finder-heading" class="finder-heading">Dünger finden</h1>
+        <div class="finder-grid">
+          <div class="finder-card">
+            <h2 class="finder-card-title">Onlineshops</h2>
+            <div class="shop-list" aria-live="polite"></div>
+          </div>
+          <div class="finder-card finder-map-card">
+            <h2 class="finder-card-title">Shops in deiner Nähe</h2>
+            <form class="shop-search-form">
+              <input type="text" class="shop-address-input" name="address" placeholder="Adresse oder Ort eingeben" autocomplete="street-address">
+              <button type="submit" class="shop-search-button">Suchen</button>
+            </form>
+            <div class="map-fallback">
+              <p>Google Maps wird aktiviert, sobald der API-Key hinterlegt ist.</p>
+              <a href="https://www.google.com/maps/search/GROW%20easy%20D%C3%BCnger" target="_blank" rel="noopener" class="maps-fallback-link">Auf Google Maps suchen</a>
+            </div>
+          </div>
+          <div class="finder-card finder-b2b-card">
+            <h2 class="finder-card-title">B2B &amp; Händler</h2>
+            <p>Du möchtest GROW easy oder BLOOM easy führen?</p>
+            <a href="kontakt.html" class="b2b-contact-button">Kontakt aufnehmen</a>
+          </div>
+        </div>
+      </div>
+    </section>
     <div class="w-layout-blockcontainer container-7 w-container"></div>
   </section>
   <section><img src="images/Footer.jpg" loading="lazy" sizes="(max-width: 1920px) 100vw, 1920px" srcset="images/Footer-p-500.jpg 500w, images/Footer-p-800.jpg 800w, images/Footer-p-1080.jpg 1080w, images/Footer-p-1600.jpg 1600w, images/Footer.jpg 1920w" alt=""></section>
