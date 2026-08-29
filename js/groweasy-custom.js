@@ -165,8 +165,12 @@
         return;
       }
 
-      event.preventDefault();
-      schemaPopup.style.display = "flex";
+      if (event) {
+        event.preventDefault();
+      }
+
+      schemaPopup.classList.add("is-open");
+      schemaPopup.style.removeProperty("display");
       schemaPopup.setAttribute("aria-hidden", "false");
       if (schemaPopupClose) {
         schemaPopupClose.focus();
@@ -178,7 +182,8 @@
         return;
       }
 
-      schemaPopup.style.display = "none";
+      schemaPopup.classList.remove("is-open");
+      schemaPopup.style.removeProperty("display");
       schemaPopup.setAttribute("aria-hidden", "true");
       if (schemaOpenButton) {
         schemaOpenButton.focus();
@@ -211,9 +216,18 @@
     }
 
     if (schemaOpenButton) {
-      schemaOpenButton.addEventListener("click", openSchemaPopup);
       addKeyboardClick(schemaOpenButton, openSchemaPopup);
     }
+
+    document.addEventListener("click", function (event) {
+      var trigger = event.target.closest(".schema-open-button");
+
+      if (!trigger) {
+        return;
+      }
+
+      openSchemaPopup(event);
+    });
 
     if (schemaPopupClose) {
       schemaPopupClose.addEventListener("click", closeSchemaPopup);
