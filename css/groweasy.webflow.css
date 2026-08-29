@@ -1242,6 +1242,119 @@ html, body {
   display: block;
 }
 
+.grow-detail-overlay {
+  z-index: 1;
+  pointer-events: none;
+  position: absolute;
+  inset: 0%;
+}
+
+.grow-detail-copy-panel {
+  color: #123a31;
+  text-align: center;
+  width: 90.4%;
+  height: 13.4%;
+  margin: 0;
+  padding: 0 2.2%;
+  line-height: normal;
+  position: absolute;
+  top: 61.6%;
+  left: 4.8%;
+}
+
+.grow-detail-heading {
+  color: #cfb139;
+  text-align: center;
+  text-transform: none;
+  margin: 0 0 .45em;
+  font-family: ImpactCondensed, Oswald, Impact, "Arial Narrow", sans-serif;
+  font-size: clamp(26px, 2.75vw, 40px);
+  font-weight: 400;
+  line-height: .92;
+}
+
+.grow-detail-scroll {
+  color: #123a31;
+  text-align: center;
+  height: calc(100% - clamp(34px, 3.4vw, 50px));
+  padding: 0 .7em .3em;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  font-family: CalibriLocal, Calibri, Arial, sans-serif;
+  font-size: clamp(12px, 1.17vw, 17px);
+  font-weight: 700;
+  line-height: 1.08;
+  scrollbar-color: #cfb139 #0000;
+  scrollbar-width: thin;
+  pointer-events: auto;
+}
+
+.grow-detail-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.grow-detail-scroll::-webkit-scrollbar-track {
+  background-color: #0000;
+}
+
+.grow-detail-scroll::-webkit-scrollbar-thumb {
+  background-color: #cfb139;
+  border-radius: 8px;
+}
+
+.grow-detail-scroll p {
+  margin: 0 0 .7em;
+}
+
+.grow-pack-note {
+  color: #cfb139;
+  text-align: center;
+  width: 22%;
+  margin: 0;
+  font-family: ImpactCondensed, Oswald, Impact, "Arial Narrow", sans-serif;
+  font-size: clamp(19px, 2.15vw, 31px);
+  font-weight: 400;
+  line-height: .95;
+  position: absolute;
+  top: 78.3%;
+}
+
+.grow-pack-note-small {
+  left: 11.7%;
+}
+
+.grow-pack-note-large {
+  right: 11.7%;
+}
+
+.grow-buy-button {
+  width: clamp(190px, 22vw, 320px);
+  line-height: 0;
+  position: absolute;
+  top: 77.7%;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: transform .2s ease, filter .2s ease;
+  pointer-events: auto;
+}
+
+.grow-buy-button:hover {
+  filter: saturate(1.08) drop-shadow(0 6px 8px #0003);
+  transform: translateX(-50%) scale(1.035);
+}
+
+.grow-buy-button:focus-visible {
+  outline: 3px solid #cfb139;
+  outline-offset: 6px;
+}
+
+.grow-buy-button picture,
+.grow-buy-button img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 .product-detail-hero {
   grid-column-gap: clamp(32px, 6vw, 96px);
   grid-row-gap: 32px;
@@ -1907,6 +2020,30 @@ html, body {
     width: clamp(174px, 22vw, 240px);
   }
 
+  .grow-detail-copy-panel {
+    top: 61.5%;
+    height: 13.6%;
+    padding-left: 1.8%;
+    padding-right: 1.8%;
+  }
+
+  .grow-detail-heading {
+    font-size: clamp(24px, 3.1vw, 31px);
+  }
+
+  .grow-detail-scroll {
+    height: calc(100% - clamp(30px, 3.8vw, 38px));
+    font-size: clamp(10px, 1.28vw, 13px);
+  }
+
+  .grow-pack-note {
+    font-size: clamp(17px, 2.3vw, 23px);
+  }
+
+  .grow-buy-button {
+    width: clamp(174px, 22vw, 240px);
+  }
+
   .heading {
     margin: 0;
     font-size: 64px;
@@ -2061,6 +2198,44 @@ html, body {
   }
 
   .bloom-buy-button {
+    width: clamp(124px, 27vw, 205px);
+    top: 78.6%;
+  }
+
+  .grow-detail-copy-panel {
+    top: 61.4%;
+    height: 14.6%;
+    left: 5%;
+    width: 90%;
+    padding-left: 1.4%;
+    padding-right: 1.4%;
+  }
+
+  .grow-detail-heading {
+    margin-bottom: .25em;
+    font-size: clamp(17px, 3.9vw, 28px);
+  }
+
+  .grow-detail-scroll {
+    height: calc(100% - clamp(21px, 5.1vw, 34px));
+    font-size: clamp(8px, 1.75vw, 12px);
+    line-height: 1.02;
+  }
+
+  .grow-pack-note {
+    top: 79.1%;
+    font-size: clamp(12px, 2.6vw, 19px);
+  }
+
+  .grow-pack-note-small {
+    left: 11%;
+  }
+
+  .grow-pack-note-large {
+    right: 11%;
+  }
+
+  .grow-buy-button {
     width: clamp(124px, 27vw, 205px);
     top: 78.6%;
   }
@@ -2227,6 +2402,51 @@ html, body {
   }
 
   .bloom-buy-button {
+    width: clamp(102px, 28vw, 136px);
+    top: 78.8%;
+  }
+
+  .grow-detail-copy-panel {
+    top: 61.2%;
+    height: 15.8%;
+    left: 4.6%;
+    width: 90.8%;
+    padding-left: 1%;
+    padding-right: 1%;
+  }
+
+  .grow-detail-heading {
+    margin-bottom: .18em;
+    font-size: clamp(13px, 4vw, 19px);
+  }
+
+  .grow-detail-scroll {
+    height: calc(100% - clamp(16px, 4.9vw, 23px));
+    padding-left: .35em;
+    padding-right: .35em;
+    font-size: clamp(6.5px, 1.85vw, 8.8px);
+    line-height: 1;
+  }
+
+  .grow-detail-scroll p {
+    margin-bottom: .55em;
+  }
+
+  .grow-pack-note {
+    top: 79.2%;
+    width: 25%;
+    font-size: clamp(9px, 2.45vw, 12px);
+  }
+
+  .grow-pack-note-small {
+    left: 9.4%;
+  }
+
+  .grow-pack-note-large {
+    right: 9.4%;
+  }
+
+  .grow-buy-button {
     width: clamp(102px, 28vw, 136px);
     top: 78.8%;
   }

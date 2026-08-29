@@ -7,7 +7,275 @@
   <meta content="Webflow" name="generator">
   <link href="css/normalize.css" rel="stylesheet" type="text/css">
   <link href="css/webflow.css" rel="stylesheet" type="text/css">
-  <link href="css/groweasy.webflow.css?v=20260829-bloom-overlay" rel="stylesheet" type="text/css">
+  <link href="css/groweasy.webflow.css?v=20260830-grow-overlay" rel="stylesheet" type="text/css">
+  <style>
+    @font-face {
+      font-family: ImpactCondensed;
+      src: url("fonts/ImpactCondensed.woff2") format("woff2"), url("fonts/ImpactCondensed.woff") format("woff"), url("fonts/ImpactCondensed.ttf") format("truetype");
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+      unicode-range: U+0000-007F;
+    }
+
+    @font-face {
+      font-family: CalibriLocal;
+      src: url("fonts/calibri-bold.ttf") format("truetype");
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    .product-page-art-section {
+      background-color: #d6ecdf;
+      width: 100vw;
+      margin: 0;
+      padding: 0;
+      line-height: 0;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    .product-page-art-section > picture {
+      display: block;
+      position: relative;
+      z-index: 0;
+    }
+
+    .product-page-art {
+      width: 100vw;
+      max-width: none;
+      height: auto;
+      margin: 0;
+      display: block;
+    }
+
+    .grow-detail-overlay {
+      z-index: 1;
+      pointer-events: none;
+      position: absolute;
+      inset: 0%;
+    }
+
+    .grow-detail-copy-panel {
+      color: #123a31;
+      text-align: center;
+      width: 90.4%;
+      height: 13.4%;
+      margin: 0;
+      padding: 0 2.2%;
+      line-height: normal;
+      position: absolute;
+      top: 61.6%;
+      left: 4.8%;
+    }
+
+    .grow-detail-heading {
+      color: #cfb139;
+      text-align: center;
+      text-transform: none;
+      margin: 0 0 .45em;
+      font-family: ImpactCondensed, Oswald, Impact, "Arial Narrow", sans-serif;
+      font-size: clamp(26px, 2.75vw, 40px);
+      font-weight: 400;
+      line-height: .92;
+    }
+
+    .grow-detail-scroll {
+      color: #123a31;
+      text-align: center;
+      height: calc(100% - clamp(34px, 3.4vw, 50px));
+      padding: 0 .7em .3em;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      font-family: CalibriLocal, Calibri, Arial, sans-serif;
+      font-size: clamp(12px, 1.17vw, 17px);
+      font-weight: 700;
+      line-height: 1.08;
+      scrollbar-color: #cfb139 #0000;
+      scrollbar-width: thin;
+      pointer-events: auto;
+    }
+
+    .grow-detail-scroll::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .grow-detail-scroll::-webkit-scrollbar-track {
+      background-color: #0000;
+    }
+
+    .grow-detail-scroll::-webkit-scrollbar-thumb {
+      background-color: #cfb139;
+      border-radius: 8px;
+    }
+
+    .grow-detail-scroll p {
+      margin: 0 0 .7em;
+    }
+
+    .grow-pack-note {
+      color: #cfb139;
+      text-align: center;
+      width: 22%;
+      margin: 0;
+      font-family: ImpactCondensed, Oswald, Impact, "Arial Narrow", sans-serif;
+      font-size: clamp(19px, 2.15vw, 31px);
+      font-weight: 400;
+      line-height: .95;
+      position: absolute;
+      top: 78.3%;
+    }
+
+    .grow-pack-note-small {
+      left: 11.7%;
+    }
+
+    .grow-pack-note-large {
+      right: 11.7%;
+    }
+
+    .grow-buy-button {
+      width: clamp(190px, 22vw, 320px);
+      line-height: 0;
+      position: absolute;
+      top: 77.7%;
+      left: 50%;
+      transform: translateX(-50%);
+      transition: transform .2s ease, filter .2s ease;
+      pointer-events: auto;
+    }
+
+    .grow-buy-button:hover {
+      filter: saturate(1.08) drop-shadow(0 6px 8px #0003);
+      transform: translateX(-50%) scale(1.035);
+    }
+
+    .grow-buy-button:focus-visible {
+      outline: 3px solid #cfb139;
+      outline-offset: 6px;
+    }
+
+    .grow-buy-button picture,
+    .grow-buy-button img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    @media screen and (max-width: 991px) {
+      .grow-detail-copy-panel {
+        top: 61.5%;
+        height: 13.6%;
+        padding-left: 1.8%;
+        padding-right: 1.8%;
+      }
+
+      .grow-detail-heading {
+        font-size: clamp(24px, 3.1vw, 31px);
+      }
+
+      .grow-detail-scroll {
+        height: calc(100% - clamp(30px, 3.8vw, 38px));
+        font-size: clamp(10px, 1.28vw, 13px);
+      }
+
+      .grow-pack-note {
+        font-size: clamp(17px, 2.3vw, 23px);
+      }
+
+      .grow-buy-button {
+        width: clamp(174px, 22vw, 240px);
+      }
+    }
+
+    @media screen and (max-width: 767px) {
+      .grow-detail-copy-panel {
+        top: 61.4%;
+        height: 14.6%;
+        left: 5%;
+        width: 90%;
+        padding-left: 1.4%;
+        padding-right: 1.4%;
+      }
+
+      .grow-detail-heading {
+        margin-bottom: .25em;
+        font-size: clamp(17px, 3.9vw, 28px);
+      }
+
+      .grow-detail-scroll {
+        height: calc(100% - clamp(21px, 5.1vw, 34px));
+        font-size: clamp(8px, 1.75vw, 12px);
+        line-height: 1.02;
+      }
+
+      .grow-pack-note {
+        top: 79.1%;
+        font-size: clamp(12px, 2.6vw, 19px);
+      }
+
+      .grow-pack-note-small {
+        left: 11%;
+      }
+
+      .grow-pack-note-large {
+        right: 11%;
+      }
+
+      .grow-buy-button {
+        width: clamp(124px, 27vw, 205px);
+        top: 78.6%;
+      }
+    }
+
+    @media screen and (max-width: 479px) {
+      .grow-detail-copy-panel {
+        top: 61.2%;
+        height: 15.8%;
+        left: 4.6%;
+        width: 90.8%;
+        padding-left: 1%;
+        padding-right: 1%;
+      }
+
+      .grow-detail-heading {
+        margin-bottom: .18em;
+        font-size: clamp(13px, 4vw, 19px);
+      }
+
+      .grow-detail-scroll {
+        height: calc(100% - clamp(16px, 4.9vw, 23px));
+        padding-left: .35em;
+        padding-right: .35em;
+        font-size: clamp(6.5px, 1.85vw, 8.8px);
+        line-height: 1;
+      }
+
+      .grow-detail-scroll p {
+        margin-bottom: .55em;
+      }
+
+      .grow-pack-note {
+        top: 79.2%;
+        width: 25%;
+        font-size: clamp(9px, 2.45vw, 12px);
+      }
+
+      .grow-pack-note-small {
+        left: 9.4%;
+      }
+
+      .grow-pack-note-large {
+        right: 9.4%;
+      }
+
+      .grow-buy-button {
+        width: clamp(102px, 28vw, 136px);
+        top: 78.8%;
+      }
+    }
+  </style>
   <style>html.w-mod-js:not(.w-mod-ix3) :is(.container) {visibility: hidden !important;}</style>
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
@@ -33,9 +301,33 @@
   </div>
   <main class="product-page-art-section">
     <picture>
-      <source srcset="images/GrowEasy-Produktpage-breit-lang-ohne-text.webp?v=20260829-bloom-overlay" type="image/webp">
-      <img src="images/GrowEasy-Produktpage-breit-lang-ohne-text.png?v=20260829-bloom-overlay" loading="eager" alt="GROW easy Produktseite" class="product-page-art">
+      <source srcset="images/GrowEasy-Produktpage-breit-lang-ohne-text.webp?v=20260830-grow-overlay" type="image/webp">
+      <img src="images/GrowEasy-Produktpage-breit-lang-ohne-text.png?v=20260830-grow-overlay" loading="eager" alt="GROW easy Produktseite" class="product-page-art">
     </picture>
+    <div class="grow-detail-overlay">
+      <section class="grow-detail-copy-panel" aria-labelledby="grow-detail-title">
+        <h1 id="grow-detail-title" class="grow-detail-heading">Die Kraft der Natur für ein üppiges Pflanzenwachstum.</h1>
+        <div class="grow-detail-scroll">
+          <p><strong>GROWeasy - natürlich düngen. Einfach wachsen lassen.</strong></p>
+          <p><strong>GROWeasy</strong> ist ein natürlicher organischer Feststoffdünger, der deine Pflanzen während der gesamten Wachstumsphase zuverlässig mit wichtigen Nährstoffen versorgt. Die ausgewogene Rezeptur kombiniert unterschiedliche natürliche Nährstoffquellen mit Mineralien, Huminstoffen, Pflanzenkohle und ausgewählten Mikroorganismen.</p>
+          <p>Dabei setzt GROWeasy nicht nur auf die direkte Versorgung der Pflanze, sondern unterstützt auch ein <strong>aktives und gesundes Bodenleben</strong>. Organische Bestandteile werden nach und nach umgesetzt und stellen der Pflanze Nährstoffe über einen längeren Zeitraum zur Verfügung. Zeolith und vorgeladene Pflanzenkohle dienen zusätzlich als Nährstoffpuffer und bieten Mikroorganismen einen geeigneten Lebensraum.</p>
+          <p>Die Kombination aus schnell und langsam verfügbaren Stickstoffquellen unterstützt ein gleichmäßiges, kräftiges Wachstum, während natürliche Phosphor-, Kalium-, Calcium- und Spurenelementquellen die Entwicklung von Wurzeln, Stamm und Blattmasse begleiten. Chitinhaltige Rohstoffe, Huminstoffe, Kelp und Alfalfa ergänzen die Rezeptur.</p>
+          <p><strong>Düngen kann so einfach sein</strong></p>
+          <p>Als Feststoffdünger ist GROWeasy besonders unkompliziert in der Anwendung: Dosieren, in die Erde einarbeiten und gießen - fertig. Es müssen keine verschiedenen Flüssigdünger miteinander kombiniert und nicht bei jedem Gießen neue Nährlösungen angemischt werden.</p>
+          <p>Die festen organischen Bestandteile verbleiben im Substrat und werden dort über einen längeren Zeitraum umgesetzt. So entsteht eine kontinuierliche Nährstoffversorgung, die sich am natürlichen Kreislauf eines lebendigen Bodens orientiert.</p>
+          <p><strong>GROWeasy steht für:</strong> natürliche Rohstoffe, langfristige Nährstoffversorgung, Unterstützung des Bodenlebens und vor allem eine einfache Anwendung.</p>
+          <p><strong>Dünger rein. Wasser drauf. GROWeasy.</strong></p>
+        </div>
+      </section>
+      <div class="grow-pack-note grow-pack-note-small">150g Packung für<br>ca. 2-5 Pflanzen</div>
+      <div class="grow-pack-note grow-pack-note-large">500g Packung für<br>ca. 6-15 Pflanzen</div>
+      <a href="index.html#finder-heading" class="grow-buy-button" aria-label="GROWeasy kaufen">
+        <picture>
+          <source srcset="images/jetzt-kaufen-button-duengerstil.webp?v=20260830-grow-overlay" type="image/webp">
+          <img src="images/jetzt-kaufen-button-duengerstil.png?v=20260830-grow-overlay" loading="eager" alt="Jetzt kaufen">
+        </picture>
+      </a>
+    </div>
   </main>
   <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=69b96837971bd01c02390ca6" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
   <script src="js/webflow.js" type="text/javascript"></script>
