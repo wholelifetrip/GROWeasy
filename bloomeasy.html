@@ -8,6 +8,274 @@
   <link href="css/normalize.css" rel="stylesheet" type="text/css">
   <link href="css/webflow.css" rel="stylesheet" type="text/css">
   <link href="css/groweasy.webflow.css?v=20260829-bloom-overlay" rel="stylesheet" type="text/css">
+  <style>
+    @font-face {
+      font-family: ImpactCondensed;
+      src: url("fonts/ImpactCondensed.woff2") format("woff2"), url("fonts/ImpactCondensed.woff") format("woff"), url("fonts/ImpactCondensed.ttf") format("truetype");
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+      unicode-range: U+0000-007F;
+    }
+
+    @font-face {
+      font-family: CalibriLocal;
+      src: url("fonts/calibri-bold.ttf") format("truetype");
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    .product-page-art-section {
+      background-color: #d6ecdf;
+      width: 100vw;
+      margin: 0;
+      padding: 0;
+      line-height: 0;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    .product-page-art-section > picture {
+      display: block;
+      position: relative;
+      z-index: 0;
+    }
+
+    .product-page-art {
+      width: 100vw;
+      max-width: none;
+      height: auto;
+      margin: 0;
+      display: block;
+    }
+
+    .bloom-detail-overlay {
+      z-index: 1;
+      pointer-events: none;
+      position: absolute;
+      inset: 0%;
+    }
+
+    .bloom-detail-copy-panel {
+      color: #123a31;
+      text-align: center;
+      width: 89.4%;
+      height: 12.8%;
+      margin: 0;
+      padding: 0 2.2%;
+      line-height: normal;
+      position: absolute;
+      top: 60.2%;
+      left: 5.3%;
+    }
+
+    .bloom-detail-heading {
+      color: #db2e6f;
+      text-align: center;
+      text-transform: none;
+      margin: 0 0 .45em;
+      font-family: ImpactCondensed, Oswald, Impact, "Arial Narrow", sans-serif;
+      font-size: clamp(26px, 2.75vw, 40px);
+      font-weight: 400;
+      line-height: .92;
+    }
+
+    .bloom-detail-scroll {
+      color: #123a31;
+      text-align: center;
+      height: calc(100% - clamp(34px, 3.4vw, 50px));
+      padding: 0 .7em .3em;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      font-family: CalibriLocal, Calibri, Arial, sans-serif;
+      font-size: clamp(12px, 1.17vw, 17px);
+      font-weight: 700;
+      line-height: 1.08;
+      scrollbar-color: #2b9f83 #0000;
+      scrollbar-width: thin;
+      pointer-events: auto;
+    }
+
+    .bloom-detail-scroll::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .bloom-detail-scroll::-webkit-scrollbar-track {
+      background-color: #0000;
+    }
+
+    .bloom-detail-scroll::-webkit-scrollbar-thumb {
+      background-color: #2b9f83;
+      border-radius: 8px;
+    }
+
+    .bloom-detail-scroll p {
+      margin: 0 0 .7em;
+    }
+
+    .bloom-pack-note {
+      color: #db2e6f;
+      text-align: center;
+      width: 22%;
+      margin: 0;
+      font-family: ImpactCondensed, Oswald, Impact, "Arial Narrow", sans-serif;
+      font-size: clamp(19px, 2.15vw, 31px);
+      font-weight: 400;
+      line-height: .95;
+      position: absolute;
+      top: 74.1%;
+    }
+
+    .bloom-pack-note-small {
+      left: 11.7%;
+    }
+
+    .bloom-pack-note-large {
+      right: 17.2%;
+    }
+
+    .bloom-buy-button {
+      width: clamp(190px, 22vw, 320px);
+      line-height: 0;
+      position: absolute;
+      top: 77%;
+      left: 50%;
+      transform: translateX(-50%);
+      transition: transform .2s ease, filter .2s ease;
+      pointer-events: auto;
+    }
+
+    .bloom-buy-button:hover {
+      filter: saturate(1.08) drop-shadow(0 6px 8px #0003);
+      transform: translateX(-50%) scale(1.035);
+    }
+
+    .bloom-buy-button:focus-visible {
+      outline: 3px solid #2b9f83;
+      outline-offset: 6px;
+    }
+
+    .bloom-buy-button picture,
+    .bloom-buy-button img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    @media screen and (max-width: 991px) {
+      .bloom-detail-copy-panel {
+        top: 60.1%;
+        height: 13%;
+        padding-left: 1.8%;
+        padding-right: 1.8%;
+      }
+
+      .bloom-detail-heading {
+        font-size: clamp(24px, 3.1vw, 31px);
+      }
+
+      .bloom-detail-scroll {
+        height: calc(100% - clamp(30px, 3.8vw, 38px));
+        font-size: clamp(10px, 1.28vw, 13px);
+      }
+
+      .bloom-pack-note {
+        font-size: clamp(17px, 2.3vw, 23px);
+      }
+
+      .bloom-buy-button {
+        width: clamp(174px, 22vw, 240px);
+      }
+    }
+
+    @media screen and (max-width: 767px) {
+      .bloom-detail-copy-panel {
+        top: 60.1%;
+        height: 14.2%;
+        left: 5%;
+        width: 90%;
+        padding-left: 1.4%;
+        padding-right: 1.4%;
+      }
+
+      .bloom-detail-heading {
+        margin-bottom: .25em;
+        font-size: clamp(17px, 3.9vw, 28px);
+      }
+
+      .bloom-detail-scroll {
+        height: calc(100% - clamp(21px, 5.1vw, 34px));
+        font-size: clamp(8px, 1.75vw, 12px);
+        line-height: 1.02;
+      }
+
+      .bloom-pack-note {
+        top: 75%;
+        font-size: clamp(12px, 2.6vw, 19px);
+      }
+
+      .bloom-pack-note-small {
+        left: 11%;
+      }
+
+      .bloom-pack-note-large {
+        right: 16%;
+      }
+
+      .bloom-buy-button {
+        width: clamp(124px, 27vw, 205px);
+        top: 78%;
+      }
+    }
+
+    @media screen and (max-width: 479px) {
+      .bloom-detail-copy-panel {
+        top: 59.9%;
+        height: 15.2%;
+        left: 4.6%;
+        width: 90.8%;
+        padding-left: 1%;
+        padding-right: 1%;
+      }
+
+      .bloom-detail-heading {
+        margin-bottom: .18em;
+        font-size: clamp(13px, 4vw, 19px);
+      }
+
+      .bloom-detail-scroll {
+        height: calc(100% - clamp(16px, 4.9vw, 23px));
+        padding-left: .35em;
+        padding-right: .35em;
+        font-size: clamp(6.5px, 1.85vw, 8.8px);
+        line-height: 1;
+      }
+
+      .bloom-detail-scroll p {
+        margin-bottom: .55em;
+      }
+
+      .bloom-pack-note {
+        top: 75.2%;
+        width: 25%;
+        font-size: clamp(9px, 2.45vw, 12px);
+      }
+
+      .bloom-pack-note-small {
+        left: 9.4%;
+      }
+
+      .bloom-pack-note-large {
+        right: 14.8%;
+      }
+
+      .bloom-buy-button {
+        width: clamp(102px, 28vw, 136px);
+        top: 78.2%;
+      }
+    }
+  </style>
   <style>html.w-mod-js:not(.w-mod-ix3) :is(.container) {visibility: hidden !important;}</style>
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
