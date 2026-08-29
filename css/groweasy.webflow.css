@@ -1203,7 +1203,7 @@ html, body {
   font-weight: 400;
   line-height: .95;
   position: absolute;
-  top: 74.1%;
+  top: 75.3%;
 }
 
 .bloom-pack-note-small {
@@ -1218,7 +1218,7 @@ html, body {
   width: clamp(190px, 22vw, 320px);
   line-height: 0;
   position: absolute;
-  top: 77%;
+  top: 77.7%;
   left: 50%;
   transform: translateX(-50%);
   transition: transform .2s ease, filter .2s ease;
@@ -2048,7 +2048,7 @@ html, body {
   }
 
   .bloom-pack-note {
-    top: 75%;
+    top: 76.1%;
     font-size: clamp(12px, 2.6vw, 19px);
   }
 
@@ -2062,7 +2062,7 @@ html, body {
 
   .bloom-buy-button {
     width: clamp(124px, 27vw, 205px);
-    top: 78%;
+    top: 78.6%;
   }
 }
 
@@ -2213,7 +2213,7 @@ html, body {
   }
 
   .bloom-pack-note {
-    top: 75.2%;
+    top: 76.2%;
     width: 25%;
     font-size: clamp(9px, 2.45vw, 12px);
   }
@@ -2228,7 +2228,7 @@ html, body {
 
   .bloom-buy-button {
     width: clamp(102px, 28vw, 136px);
-    top: 78.2%;
+    top: 78.8%;
   }
 }
 
