@@ -29,6 +29,177 @@
     var shopAddressInput = document.querySelector(".shop-address-input");
     var contactForm = document.querySelector(".contact-form");
     var contactFormStatus = document.querySelector(".contact-form-status");
+    var siteBackButton = document.querySelector(".site-back-button");
+    var returnPointKey = "groweasyReturnPoint";
+    var pendingScrollKey = "groweasyPendingScroll";
+    var returnTargetPages = {
+      "kontakt.html": true,
+      "groweasy.html": true,
+      "bloomeasy.html": true,
+      "impressum.html": true,
+      "datenschutz.html": true,
+      "cookies.html": true
+    };
+
+    function canUseSessionStorage() {
+      try {
+        var testKey = "groweasyStorageTest";
+        window.sessionStorage.setItem(testKey, "1");
+        window.sessionStorage.removeItem(testKey);
+        return true;
+      } catch (error) {
+        return false;
+      }
+    }
+
+    var hasSessionStorage = canUseSessionStorage();
+
+    function getCurrentReturnUrl() {
+      return window.location.pathname + window.location.search + window.location.hash;
+    }
+
+    function getPathPageName(pathname) {
+      var cleanPath = pathname.replace(/\/+$/, "");
+      var parts = cleanPath.split("/");
+      return parts[parts.length - 1] || "index.html";
+    }
+
+    function isIndexPath(pathname) {
+      var pageName = getPathPageName(pathname);
+      return pageName === "index.html";
+    }
+
+    function getStoredJson(key) {
+      if (!hasSessionStorage) {
+        return null;
+      }
+
+      try {
+        return JSON.parse(window.sessionStorage.getItem(key) || "null");
+      } catch (error) {
+        return null;
+      }
+    }
+
+    function setStoredJson(key, value) {
+      if (!hasSessionStorage) {
+        return;
+      }
+
+      try {
+        window.sessionStorage.setItem(key, JSON.stringify(value));
+      } catch (error) {
+        return;
+      }
+    }
+
+    function removeStoredItem(key) {
+      if (!hasSessionStorage) {
+        return;
+      }
+
+      try {
+        window.sessionStorage.removeItem(key);
+      } catch (error) {
+        return;
+      }
+    }
+
+    function rememberReturnPoint() {
+      setStoredJson(returnPointKey, {
+        url: getCurrentReturnUrl(),
+        path: window.location.pathname,
+        scrollY: Math.max(0, Math.round(window.pageYOffset || document.documentElement.scrollTop || 0)),
+        savedAt: Date.now()
+      });
+    }
+
+    function shouldRememberLink(anchor) {
+      var target;
+      var pageName;
+
+      if (!anchor || anchor.closest(".site-back-button") || anchor.hasAttribute("download")) {
+        return false;
+      }
+
+      if (anchor.target && anchor.target.toLowerCase() === "_blank") {
+        return false;
+      }
+
+      if (!anchor.href || anchor.href.indexOf("mailto:") === 0 || anchor.href.indexOf("tel:") === 0) {
+        return false;
+      }
+
+      try {
+        target = new URL(anchor.href, window.location.href);
+      } catch (error) {
+        return false;
+      }
+
+      if (target.origin !== window.location.origin) {
+        return false;
+      }
+
+      pageName = getPathPageName(target.pathname);
+      return Boolean(returnTargetPages[pageName]);
+    }
+
+    function restorePendingScrollPoint() {
+      var pending = getStoredJson(pendingScrollKey);
+      var currentPath = window.location.pathname;
+      var targetPath;
+      var scrollY;
+
+      if (!pending || !pending.path) {
+        return;
+      }
+
+      targetPath = pending.path;
+      if (currentPath !== targetPath && !(isIndexPath(currentPath) && isIndexPath(targetPath))) {
+        return;
+      }
+
+      scrollY = Math.max(0, Number(pending.scrollY) || 0);
+      removeStoredItem(pendingScrollKey);
+
+      function scrollBack() {
+        window.scrollTo(0, scrollY);
+      }
+
+      window.requestAnimationFrame(scrollBack);
+      window.setTimeout(scrollBack, 160);
+      window.setTimeout(scrollBack, 520);
+    }
+
+    function navigateBackToStoredPoint(event) {
+      var stored = getStoredJson(returnPointKey);
+
+      if (!stored || !stored.url || !stored.path) {
+        return;
+      }
+
+      event.preventDefault();
+      setStoredJson(pendingScrollKey, {
+        path: stored.path,
+        scrollY: stored.scrollY || 0
+      });
+      removeStoredItem(returnPointKey);
+      window.location.href = stored.url;
+    }
+
+    restorePendingScrollPoint();
+
+    document.addEventListener("click", function (event) {
+      var anchor = event.target.closest("a");
+
+      if (shouldRememberLink(anchor)) {
+        rememberReturnPoint();
+      }
+    }, true);
+
+    if (siteBackButton) {
+      siteBackButton.addEventListener("click", navigateBackToStoredPoint);
+    }
 
     function showBioPaperAttention() {
       bioBlockTriggers.forEach(function (trigger) {
@@ -251,6 +422,7 @@
         }
 
         event.preventDefault();
+        rememberReturnPoint();
         window.location.href = targetUrl;
       }
 
