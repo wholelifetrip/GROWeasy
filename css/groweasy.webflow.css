@@ -322,7 +322,7 @@ html, body {
 
 .section-4 {
   --myko-field-left: clamp(24px, 6vw, 92px);
-  --myko-field-top: clamp(962px, calc(95.5vw + 22px), 1397px);
+  --myko-field-top: clamp(988px, calc(95.5vw + 48px), 1423px);
   --myko-field-width: clamp(360px, 42vw, 620px);
   background-image: url('../images/Wirkungsweiße.webp');
   background-position: 50% 0;
@@ -332,7 +332,8 @@ html, body {
   align-items: flex-start;
   width: 100%;
   max-width: 100%;
-  height: max(1180px, 116.5vw);
+  height: 116.49vw;
+  min-height: 0;
   display: flex;
   position: relative;
 }
@@ -1663,9 +1664,9 @@ html, body {
 
   .section-4 {
     --myko-field-left: 48px;
-    --myko-field-top: 972px;
+    --myko-field-top: clamp(756px, 100.9vw, 1000px);
     --myko-field-width: 430px;
-    height: 1180px;
+    height: 116.49vw;
   }
 
   .wirkungsweise-heading {
@@ -1718,9 +1719,9 @@ html, body {
 
   .section-4 {
     --myko-field-left: 30px;
-    --myko-field-top: 740px;
+    --myko-field-top: calc(97.85vw + 6px);
     --myko-field-width: 360px;
-    height: 980px;
+    height: 116.49vw;
   }
 
   .wirkungsweise-heading {
@@ -1842,9 +1843,9 @@ html, body {
 
   .section-4 {
     --myko-field-left: 24px;
-    --myko-field-top: 552px;
+    --myko-field-top: clamp(420px, 110vw, 530px);
     --myko-field-width: min(330px, calc(100vw - 48px));
-    height: 780px;
+    height: clamp(560px, 140vw, 670px);
   }
 
   .site-back-button {
