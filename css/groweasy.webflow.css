@@ -292,7 +292,7 @@ html, body {
 
 .section-3 {
   --bio-paper-left: max(24px, calc((100% - 100vw) / 2 + 6.9vw));
-  --bio-paper-top: calc((max(1620px, 138.49vw) - 138.49vw) / 2 + 100.84vw);
+  --bio-paper-top: calc((max(1500px, 138.49vw) - 138.49vw) / 2 + 100.84vw);
   --bio-text-offset-x: 32px;
   --bio-text-offset-y: 55px;
   --bio-heading-left: max(24px, calc(var(--bio-paper-left) + 28px));
@@ -306,9 +306,16 @@ html, body {
   flex-flow: column;
   justify-content: flex-start;
   align-items: center;
-  height: max(1620px, 138.49vw);
+  height: max(1500px, 138.49vw);
   display: flex;
   position: relative;
+}
+
+@media screen and (min-width: 992px) and (max-width: 1083px) {
+  .section-3 {
+    --bio-paper-top: calc(max(1500px, 138.49vw) - 138.49vw + 100.84vw);
+    background-position: 50% 100%;
+  }
 }
 
 .container-3 {
