@@ -1068,11 +1068,36 @@ html, body {
   margin-top: 12px;
 }
 
+.contact-submit:disabled {
+  cursor: wait;
+  opacity: .72;
+  transform: none;
+}
+
 .contact-form-status {
   color: #1f6857;
   min-height: 24px;
   margin: 10px 0 0;
   font-weight: 700;
+}
+
+.contact-form-status.is-success {
+  color: #1f6857;
+}
+
+.contact-form-status.is-error {
+  color: #db2e6f;
+}
+
+.contact-honeypot {
+  clip: rect(0 0 0 0);
+  border: 0;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  position: absolute;
+  overflow: hidden;
 }
 
 .site-footer {

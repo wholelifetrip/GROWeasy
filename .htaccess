@@ -5,3 +5,11 @@
     Header set Expires "0"
   </FilesMatch>
 </IfModule>
+
+<Files "contact-config.php">
+  Require all denied
+</Files>
+
+<FilesMatch "^\.env">
+  Require all denied
+</FilesMatch>

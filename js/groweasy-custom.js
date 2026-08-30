@@ -304,8 +304,58 @@
 
     if (contactForm && contactFormStatus) {
       contactForm.addEventListener("submit", function (event) {
+        var formData = new FormData(contactForm);
+        var submitButton = contactForm.querySelector(".contact-submit");
+        var endpoint = contactForm.getAttribute("action") || "send-contact.php";
+
         event.preventDefault();
-        contactFormStatus.textContent = "Danke! Das Formular ist vorbereitet. Der Mailversand wird im nächsten Schritt eingerichtet.";
+
+        contactFormStatus.classList.remove("is-success", "is-error");
+        contactFormStatus.textContent = "Deine Nachricht wird gesendet...";
+
+        if (submitButton) {
+          submitButton.disabled = true;
+          submitButton.textContent = "Wird gesendet...";
+        }
+
+        fetch(endpoint, {
+          method: "POST",
+          body: formData,
+          headers: {
+            "Accept": "application/json"
+          }
+        })
+          .then(function (response) {
+            return response.json()
+              .catch(function () {
+                return {
+                  ok: false,
+                  message: "Die Serverantwort konnte nicht gelesen werden."
+                };
+              })
+              .then(function (data) {
+                if (!response.ok || !data.ok) {
+                  throw new Error(data.message || "Die Nachricht konnte nicht gesendet werden.");
+                }
+
+                return data;
+              });
+          })
+          .then(function (data) {
+            contactFormStatus.classList.add("is-success");
+            contactFormStatus.textContent = data.message || "Danke, deine Nachricht wurde gesendet.";
+            contactForm.reset();
+          })
+          .catch(function (error) {
+            contactFormStatus.classList.add("is-error");
+            contactFormStatus.textContent = error.message || "Die Nachricht konnte nicht gesendet werden.";
+          })
+          .finally(function () {
+            if (submitButton) {
+              submitButton.disabled = false;
+              submitButton.textContent = "Senden";
+            }
+          });
       });
     }
 
