@@ -16,29 +16,45 @@ function text_length(string $value): int
     return function_exists('mb_strlen') ? mb_strlen($value, 'UTF-8') : strlen($value);
 }
 
+function load_config_file(string $path): array
+{
+    if (!is_file($path) || !is_readable($path)) {
+        return [];
+    }
+
+    $loadedConfig = require $path;
+    return is_array($loadedConfig) ? $loadedConfig : [];
+}
+
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     respond(405, ['ok' => false, 'message' => 'Diese Anfrage ist nicht erlaubt.']);
 }
 
 $config = [
-    'hostinger_api_token' => getenv('HOSTINGER_MAIL_API_TOKEN') ?: '',
-    'mailbox_resource_id' => getenv('HOSTINGER_MAILBOX_RESOURCE_ID') ?: 'AC14e89991f85772775bfedb083504',
-    'recipient_email' => getenv('CONTACT_RECIPIENT_EMAIL') ?: 'info@groweasy.at',
-    'sender_name' => getenv('CONTACT_SENDER_NAME') ?: 'GROW easy Kontaktformular',
+    'hostinger_api_token' => (string)(getenv('HOSTINGER_MAIL_API_TOKEN') ?: ''),
+    'mailbox_resource_id' => (string)(getenv('HOSTINGER_MAILBOX_RESOURCE_ID') ?: 'AC14e89991f85772775bfedb083504'),
+    'recipient_email' => (string)(getenv('CONTACT_RECIPIENT_EMAIL') ?: 'info@groweasy.at'),
+    'sender_name' => (string)(getenv('CONTACT_SENDER_NAME') ?: 'GROW easy Kontaktformular'),
 ];
 
-$localConfigPath = __DIR__ . '/contact-config.php';
-if (is_file($localConfigPath)) {
-    $localConfig = require $localConfigPath;
-    if (is_array($localConfig)) {
+$configPaths = [
+    __DIR__ . '/contact-config.php',
+    dirname(__DIR__) . '/contact-config.php',
+    dirname(__DIR__, 2) . '/contact-config.php',
+];
+
+foreach ($configPaths as $configPath) {
+    $localConfig = load_config_file($configPath);
+    if ($localConfig) {
         $config = array_merge($config, array_filter($localConfig, static fn($value) => $value !== null && $value !== ''));
+        break;
     }
 }
 
-if (empty($config['hostinger_api_token'])) {
+if (trim($config['hostinger_api_token']) === '') {
     respond(500, [
         'ok' => false,
-        'message' => 'Der Mailversand ist serverseitig noch nicht konfiguriert.',
+        'message' => 'Der Mailversand ist serverseitig noch nicht konfiguriert. Bitte contact-config.php im Website-Ordner oder eine Ebene darüber prüfen.',
     ]);
 }
 
