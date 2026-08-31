@@ -129,7 +129,7 @@ html, body {
   aspect-ratio: 1;
   -webkit-text-fill-color: inherit;
   object-fit: none;
-  background-color: #d6ecdf;
+  background-color: #cce5d8;
   background-image: url('../images/GroweasBloomeasy.webp');
   background-repeat: no-repeat;
   background-size: 100vw auto;
@@ -1700,11 +1700,13 @@ html, body {
   from {
     opacity: 0;
     visibility: hidden;
+    transform: translate(-50%, -70px);
   }
 
   to {
     opacity: 1;
     visibility: visible;
+    transform: translate(-50%, 0);
   }
 }
 
