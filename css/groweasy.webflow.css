@@ -775,7 +775,7 @@ html, body {
   transform: translateX(-50%);
   display: block;
   overflow: visible;
-  animation: hero-arrow-enter .36s ease .4s forwards;
+  animation: hero-arrow-enter .36s ease 1.3s forwards;
   transition: transform .22s ease, filter .22s ease;
 }
 
