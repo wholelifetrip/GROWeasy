@@ -238,14 +238,15 @@
       window.requestAnimationFrame(checkScroll);
     }
 
-    function scrollToTarget(target, hash) {
+    function scrollToTarget(target, hash, extraOffset) {
       if (!target) {
         return;
       }
 
       var navbar = document.querySelector(".navbar");
       var navbarHeight = navbar ? navbar.getBoundingClientRect().height : 0;
-      var targetTop = Math.max(0, window.pageYOffset + target.getBoundingClientRect().top - navbarHeight);
+      var scrollOffset = Number(extraOffset) || 0;
+      var targetTop = Math.max(0, window.pageYOffset + target.getBoundingClientRect().top - navbarHeight + scrollOffset);
 
       if (hash) {
         window.history.replaceState(null, "", hash);
@@ -275,9 +276,12 @@
 
     if (heroScrollArrow && introSection) {
       heroScrollArrow.addEventListener("click", function (event) {
+        var introImageOffset = Math.min(70, Math.max(42, window.innerWidth * 0.05));
+
         event.preventDefault();
-        scrollToTarget(introSection, "#Intro");
-      });
+        event.stopImmediatePropagation();
+        scrollToTarget(introSection, "#Intro", introImageOffset);
+      }, true);
     }
 
     if (popupTrigger && bioBlockTriggers.length) {

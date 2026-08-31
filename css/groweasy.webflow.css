@@ -367,7 +367,7 @@ html, body {
 
 .section-4 {
   --myko-field-left: clamp(24px, 6vw, 92px);
-  --myko-field-top: clamp(988px, calc(95.5vw + 48px), 1423px);
+  --myko-field-top: clamp(1026px, calc(95.5vw + 86px), 1461px);
   --myko-field-width: clamp(360px, 42vw, 620px);
   background-image: url('../images/Wirkungsweiße.webp');
   background-position: 50% 0;
@@ -764,8 +764,10 @@ html, body {
   z-index: 4;
   visibility: hidden;
   opacity: 0;
-  width: clamp(52px, 4.5vw, 64px);
-  height: clamp(84px, 7.2vw, 104px);
+  box-sizing: content-box;
+  width: clamp(58px, 5.2vw, 76px);
+  height: clamp(108px, 8.8vw, 132px);
+  padding: 14px 10px 22px;
   position: absolute;
   left: 50%;
   top: clamp(128px, 15vw, 216px);
@@ -773,7 +775,7 @@ html, body {
   transform: translateX(-50%);
   display: block;
   overflow: visible;
-  animation: hero-arrow-enter .36s ease 2.4s forwards;
+  animation: hero-arrow-enter .36s ease .4s forwards;
   transition: transform .22s ease, filter .22s ease;
 }
 
@@ -1824,8 +1826,9 @@ html, body {
   }
 
   .hero-scroll-arrow {
-    width: 44px;
-    height: 70px;
+    width: 50px;
+    height: 92px;
+    padding: 10px 7px 18px;
     top: clamp(92px, 20vw, 126px);
     bottom: auto;
     overflow: visible;
