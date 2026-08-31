@@ -2082,17 +2082,21 @@ html, body {
   }
 
   .section-3 {
-    --bio-paper-left: max(24px, calc((100% - 1080px) / 2 + 74.5px));
+    --bio-paper-left: 74.5px;
     --bio-paper-top: 1141px;
     --bio-text-offset-x: 32px;
     --bio-text-offset-y: 55px;
     --bio-heading-left: max(24px, calc(var(--bio-paper-left) + 28px));
     --bio-heading-top: 775px;
     --bio-heading-gap: 52px;
-    background-position: 50% 0;
+    background-position: 0 0;
     background-size: 1080px;
     background-attachment: scroll;
     height: 1500px;
+  }
+
+  .hero-scroll-arrow {
+    display: none;
   }
 
   .section-4 {
