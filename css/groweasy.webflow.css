@@ -2271,8 +2271,8 @@ html, body {
   .container-4 {
     width: calc(100% - 32px);
     flex-direction: column;
-    gap: 18px;
-    padding: 26px 24px;
+    gap: 10px;
+    padding: 18px 20px;
   }
 
   .erkl-rung {
@@ -2292,8 +2292,8 @@ html, body {
     max-width: 100%;
     padding-left: 0;
     padding-right: 0;
-    font-size: clamp(15px, 3vw, 18px);
-    line-height: 1.25;
+    font-size: clamp(14px, 2.55vw, 16.5px);
+    line-height: 1.18;
   }
 
   .bold-text {
@@ -2325,7 +2325,7 @@ html, body {
   .div-block-3 {
     flex-basis: auto;
     width: min(100%, 360px);
-    height: 260px;
+    height: 205px;
     background-size: contain;
     margin-right: 0;
     margin-left: 0;
@@ -2467,7 +2467,7 @@ html, body {
   }
 
   .section-3 {
-    --bio-heading-left: max(24px, calc(var(--bio-paper-left) + 16px));
+    --bio-heading-left: 52px;
     --bio-heading-top: 774px;
     --bio-heading-gap: 42px;
     height: 1900px;
@@ -2490,7 +2490,8 @@ html, body {
 
   .container-4 {
     width: calc(100% - 24px);
-    padding: 20px 16px;
+    gap: 10px;
+    padding: 16px 14px;
   }
 
   .erkl-rung {
@@ -2510,8 +2511,8 @@ html, body {
     max-width: 100%;
     padding-left: 0;
     padding-right: 0;
-    font-size: 14px;
-    line-height: 1.24;
+    font-size: 13.5px;
+    line-height: 1.18;
   }
 
   .bold-text {
@@ -2533,7 +2534,9 @@ html, body {
 
   .heading {
     margin: 0;
-    font-size: 42px;
+    max-width: calc(100vw - 76px);
+    font-size: clamp(36px, 10.5vw, 42px);
+    white-space: nowrap;
   }
 
   .heading-2 {
@@ -2542,7 +2545,7 @@ html, body {
 
   .div-block-3 {
     width: min(100%, 300px);
-    height: 220px;
+    height: 190px;
     background-size: contain;
     margin-right: 0;
     margin-left: 0;
