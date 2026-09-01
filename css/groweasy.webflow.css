@@ -689,7 +689,7 @@ html, body {
 
 .produkte-heading {
   z-index: 2;
-  color: #1f6857;
+  color: #f6fff9;
   text-align: center;
   text-transform: uppercase;
   pointer-events: none;
@@ -700,7 +700,7 @@ html, body {
   font-weight: 700;
   line-height: .92;
   letter-spacing: 0;
-  text-shadow: 3px 4px 1px #00000024;
+  text-shadow: 3px 4px 1px #1f685766;
   position: absolute;
   top: clamp(28px, 5.2vw, 82px);
   left: 50%;
@@ -2803,6 +2803,41 @@ html, body {
 
   .heading-2 {
     font-size: clamp(39px, 9.2vw, 43px);
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .section-4 {
+    --myko-field-left: clamp(18px, 5.8vw, 32px);
+    --myko-field-bottom: clamp(26px, 7vw, 46px);
+    --myko-field-width: clamp(158px, 39vw, 206px);
+    background-image: url('../images/Wirkungsweise-mobile.webp?v=20260901-section4-mobile-bg');
+    background-position: 100% 0;
+    background-size: auto 100%;
+    height: clamp(820px, 165.3vw, 910px);
+  }
+
+  .wirkungsweise-heading {
+    text-align: left;
+    width: min(245px, 58vw);
+    top: clamp(20px, 4.8vw, 28px);
+    left: clamp(16px, 5vw, 28px);
+    font-size: clamp(24px, 6.2vw, 34px);
+    line-height: 1.04;
+    transform: none;
+  }
+
+  .image-myko-textfeld {
+    content: url('../images/Myko-Textfeld-klein.webp?v=20260901-section4-mobile-bg');
+  }
+
+  .myko-text-block {
+    text-align: center;
+    width: 76%;
+    font-size: clamp(15px, 4vw, 20px);
+    line-height: 1.08;
+    left: 12%;
+    top: 24%;
   }
 }
 
