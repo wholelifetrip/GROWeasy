@@ -2349,11 +2349,34 @@ html, body {
     line-height: 1.15;
   }
 
+  .container-5 {
+    flex-flow: column;
+    gap: 28px;
+    align-items: center;
+    margin-top: 16px;
+    margin-bottom: 56px;
+  }
+
+  .div-block-5.proselet,
+  .div-block-6.proselect {
+    width: min(92vw, 520px);
+  }
+
+  .image-8,
+  .image-9 {
+    width: 100%;
+  }
+
+  .image-6,
+  .image-7 {
+    width: 32%;
+  }
+
   .grow-slogan {
     left: 33%;
     top: 52%;
     width: 65%;
-    font-size: clamp(13px, 2.1vw, 16px);
+    font-size: clamp(18px, 4vw, 28px);
     line-height: 1.08;
   }
 
@@ -2361,7 +2384,7 @@ html, body {
     left: 33%;
     top: 52%;
     width: 66%;
-    font-size: clamp(11px, 1.85vw, 14px);
+    font-size: clamp(16px, 3.55vw, 25px);
     line-height: 1.08;
   }
 
@@ -2595,11 +2618,27 @@ html, body {
     line-height: 1.15;
   }
 
+  .container-5 {
+    gap: 22px;
+    margin-top: 12px;
+    margin-bottom: 48px;
+  }
+
+  .div-block-5.proselet,
+  .div-block-6.proselect {
+    width: min(94vw, 440px);
+  }
+
+  .image-6,
+  .image-7 {
+    width: 33%;
+  }
+
   .grow-slogan {
     left: 32%;
     top: 51%;
     width: 68%;
-    font-size: clamp(8px, 2.1vw, 10px);
+    font-size: clamp(16px, 5.4vw, 24px);
     line-height: 1.08;
   }
 
@@ -2607,7 +2646,7 @@ html, body {
     left: 32%;
     top: 51%;
     width: 68%;
-    font-size: clamp(6px, 1.7vw, 8px);
+    font-size: clamp(14px, 4.7vw, 21px);
     line-height: 1.08;
   }
 
