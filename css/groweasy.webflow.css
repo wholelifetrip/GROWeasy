@@ -520,6 +520,11 @@ html, body {
   margin-left: auto;
 }
 
+.navbar .w-nav-button:not(.w--open),
+.navbar .w-nav-button:not(.w--open) .w-icon-nav-menu:before {
+  color: #1f6857;
+}
+
 .div-block-3 {
   opacity: 1;
   background-color: #1f685700;
@@ -679,6 +684,27 @@ html, body {
   justify-content: center;
   align-items: center;
   display: flex;
+  position: relative;
+}
+
+.produkte-heading {
+  z-index: 2;
+  color: #1f6857;
+  text-align: center;
+  text-transform: uppercase;
+  pointer-events: none;
+  width: 100%;
+  margin: 0;
+  font-family: ImpactLocal, ImpactCondensed, Oswald, Impact, "Arial Narrow", sans-serif;
+  font-size: clamp(54px, 7.6vw, 112px);
+  font-weight: 700;
+  line-height: .92;
+  letter-spacing: 0;
+  text-shadow: 3px 4px 1px #00000024;
+  position: absolute;
+  top: clamp(28px, 5.2vw, 82px);
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .container-5 {
@@ -2372,6 +2398,12 @@ html, body {
     width: 32%;
   }
 
+  .produkte-heading {
+    top: clamp(18px, 5vw, 38px);
+    font-size: clamp(42px, 10vw, 76px);
+    text-shadow: 2px 3px 1px #00000024;
+  }
+
   .grow-slogan {
     left: 33%;
     top: 52%;
@@ -2632,6 +2664,11 @@ html, body {
   .image-6,
   .image-7 {
     width: 33%;
+  }
+
+  .produkte-heading {
+    top: clamp(14px, 4.8vw, 24px);
+    font-size: clamp(34px, 10.8vw, 50px);
   }
 
   .grow-slogan {
