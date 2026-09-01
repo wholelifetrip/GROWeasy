@@ -2460,7 +2460,7 @@ html, body {
 
 @media screen and (min-width: 480px) and (max-width: 550px) {
   .section-3 {
-    --bio-heading-width: min(376px, calc(100vw - 48px));
+    --bio-heading-width: min(calc((100vw + 376px) / 2), calc(100vw - 32px));
     --bio-heading-left: calc((100vw - var(--bio-heading-width)) / 2);
   }
 
@@ -2468,6 +2468,14 @@ html, body {
   .heading-2 {
     width: var(--bio-heading-width);
     max-width: var(--bio-heading-width);
+  }
+
+  .heading {
+    font-size: clamp(51px, 10.2vw, 56px);
+  }
+
+  .heading-2 {
+    font-size: clamp(39px, 7.7vw, 42px);
   }
 }
 
@@ -2703,6 +2711,22 @@ html, body {
   .grow-buy-button {
     width: clamp(102px, 28vw, 136px);
     top: 78.8%;
+  }
+}
+
+@media screen and (min-width: 400px) and (max-width: 479px) {
+  .section-3 {
+    --bio-heading-width: calc(100vw - clamp(34px, 8.5vw, 44px));
+    --bio-heading-left: calc((100vw - var(--bio-heading-width)) / 2);
+    --bio-heading-top: 736px;
+  }
+
+  .heading {
+    font-size: clamp(45px, 10.8vw, 50px);
+  }
+
+  .heading-2 {
+    font-size: clamp(39px, 9.2vw, 43px);
   }
 }
 
