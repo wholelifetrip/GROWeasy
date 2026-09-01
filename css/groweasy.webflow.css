@@ -2086,8 +2086,8 @@ html, body {
     --bio-paper-top: 1141px;
     --bio-text-offset-x: 32px;
     --bio-text-offset-y: 55px;
-    --bio-heading-left: max(24px, calc(var(--bio-paper-left) + 28px));
-    --bio-heading-top: 750px;
+    --bio-heading-left: 78px;
+    --bio-heading-top: 742px;
     --bio-heading-gap: 52px;
     background-position: 0 0;
     background-size: 1080px;
@@ -2242,11 +2242,12 @@ html, body {
 
   .heading {
     margin: 0;
-    font-size: 64px;
+    font-size: 72px;
   }
 
   .heading-2 {
     margin: 0;
+    font-size: 42px;
   }
 }
 
@@ -2257,8 +2258,8 @@ html, body {
   }
 
   .section-3 {
-    --bio-heading-left: max(24px, calc(var(--bio-paper-left) + 20px));
-    --bio-heading-top: 748px;
+    --bio-heading-left: 68px;
+    --bio-heading-top: 736px;
     --bio-heading-gap: 48px;
   }
 
@@ -2315,11 +2316,12 @@ html, body {
 
   .heading {
     margin: 0;
-    font-size: 52px;
+    font-size: clamp(56px, 8.4vw, 64px);
   }
 
   .heading-2 {
     margin: 0;
+    font-size: clamp(38px, 5.2vw, 42px);
   }
 
   .div-block-3 {
@@ -2458,7 +2460,7 @@ html, body {
 
 @media screen and (min-width: 480px) and (max-width: 550px) {
   .section-3 {
-    --bio-heading-width: min(340px, calc(100vw - 48px));
+    --bio-heading-width: min(376px, calc(100vw - 48px));
     --bio-heading-left: calc((100vw - var(--bio-heading-width)) / 2);
   }
 
@@ -2480,9 +2482,9 @@ html, body {
   }
 
   .section-3 {
-    --bio-heading-width: min(300px, calc(100vw - 48px));
+    --bio-heading-width: min(330px, calc(100vw - 48px));
     --bio-heading-left: calc((100vw - var(--bio-heading-width)) / 2);
-    --bio-heading-top: 746px;
+    --bio-heading-top: 742px;
     --bio-heading-gap: 42px;
     height: 1900px;
   }
@@ -2550,7 +2552,7 @@ html, body {
     margin: 0;
     width: var(--bio-heading-width);
     max-width: var(--bio-heading-width);
-    font-size: clamp(36px, 10.5vw, 42px);
+    font-size: clamp(39px, 11.2vw, 45px);
     white-space: nowrap;
   }
 
@@ -2558,6 +2560,7 @@ html, body {
     width: var(--bio-heading-width);
     max-width: var(--bio-heading-width);
     margin: 0;
+    font-size: clamp(39px, 9vw, 42px);
   }
 
   .div-block-3 {
