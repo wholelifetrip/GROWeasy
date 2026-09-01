@@ -2087,7 +2087,7 @@ html, body {
     --bio-text-offset-x: 32px;
     --bio-text-offset-y: 55px;
     --bio-heading-left: max(24px, calc(var(--bio-paper-left) + 28px));
-    --bio-heading-top: 775px;
+    --bio-heading-top: 750px;
     --bio-heading-gap: 52px;
     background-position: 0 0;
     background-size: 1080px;
@@ -2258,7 +2258,7 @@ html, body {
 
   .section-3 {
     --bio-heading-left: max(24px, calc(var(--bio-paper-left) + 20px));
-    --bio-heading-top: 784px;
+    --bio-heading-top: 748px;
     --bio-heading-gap: 48px;
   }
 
@@ -2456,6 +2456,19 @@ html, body {
   }
 }
 
+@media screen and (min-width: 480px) and (max-width: 550px) {
+  .section-3 {
+    --bio-heading-width: min(340px, calc(100vw - 48px));
+    --bio-heading-left: calc((100vw - var(--bio-heading-width)) / 2);
+  }
+
+  .heading,
+  .heading-2 {
+    width: var(--bio-heading-width);
+    max-width: var(--bio-heading-width);
+  }
+}
+
 @media screen and (max-width: 479px) {
   .section {
     -webkit-text-fill-color: inherit;
@@ -2467,8 +2480,9 @@ html, body {
   }
 
   .section-3 {
-    --bio-heading-left: 52px;
-    --bio-heading-top: 774px;
+    --bio-heading-width: min(300px, calc(100vw - 48px));
+    --bio-heading-left: calc((100vw - var(--bio-heading-width)) / 2);
+    --bio-heading-top: 746px;
     --bio-heading-gap: 42px;
     height: 1900px;
   }
@@ -2534,12 +2548,15 @@ html, body {
 
   .heading {
     margin: 0;
-    max-width: calc(100vw - 76px);
+    width: var(--bio-heading-width);
+    max-width: var(--bio-heading-width);
     font-size: clamp(36px, 10.5vw, 42px);
     white-space: nowrap;
   }
 
   .heading-2 {
+    width: var(--bio-heading-width);
+    max-width: var(--bio-heading-width);
     margin: 0;
   }
 
