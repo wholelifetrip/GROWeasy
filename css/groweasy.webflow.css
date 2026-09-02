@@ -408,6 +408,7 @@ html, body {
 
 .myko-popup-trigger {
   z-index: 2;
+  --paper-scale: 1;
   cursor: pointer;
   width: var(--myko-field-width);
   margin: 0;
@@ -417,7 +418,8 @@ html, body {
   top: auto;
   bottom: var(--myko-field-bottom);
   transition: transform .22s ease;
-  animation: bio-paper-wiggle 3.4s ease-in-out infinite;
+  transform-origin: 50% 50%;
+  animation: bio-paper-wiggle 2.2s ease-in-out infinite;
   will-change: transform;
 }
 
@@ -426,7 +428,7 @@ html, body {
 }
 
 .myko-popup-trigger:hover {
-  transform: scale(1.035);
+  --paper-scale: 1.04;
 }
 
 .myko-popup-trigger:focus-visible {
@@ -670,6 +672,7 @@ html, body {
 }
 
 .image-5 {
+  --paper-scale: 1;
   cursor: pointer;
   width: clamp(260px, 26vw, 330px);
   height: auto;
@@ -678,8 +681,16 @@ html, body {
   inset: auto auto auto auto;
   left: var(--bio-paper-left);
   top: var(--bio-paper-top);
-  animation: bio-paper-wiggle 3.2s ease-in-out infinite;
+  transform-origin: 0 0;
+  animation: bio-paper-wiggle 2.2s ease-in-out infinite;
   will-change: transform;
+}
+
+.section-3:has(.image-5:hover) .image-5,
+.section-3:has(.image-5:hover) .text-block-3,
+.section-3:has(.text-block-3:hover) .image-5,
+.section-3:has(.text-block-3:hover) .text-block-3 {
+  --paper-scale: 1.04;
 }
 
 .produkt {
@@ -763,15 +774,15 @@ html, body {
   color: #2b9f83;
   text-align: left;
   text-transform: uppercase;
-  width: 59%;
+  width: 60%;
   margin: 0;
   font-family: ImpactLocal, ImpactCondensed, Oswald, Impact, "Arial Narrow", sans-serif;
   font-size: clamp(18px, 2.35vw, 34px);
   font-weight: 700;
-  line-height: 1;
-  letter-spacing: 0;
+  line-height: 1.12;
+  letter-spacing: .02em;
   position: absolute;
-  left: 35%;
+  left: 37%;
   top: 52%;
   pointer-events: none;
 }
@@ -781,15 +792,15 @@ html, body {
   color: #2b9f83;
   text-align: left;
   text-transform: uppercase;
-  width: 61%;
+  width: 62%;
   margin: 0;
   font-family: ImpactLocal, ImpactCondensed, Oswald, Impact, "Arial Narrow", sans-serif;
   font-size: clamp(16px, 2.05vw, 30px);
   font-weight: 700;
-  line-height: 1.08;
-  letter-spacing: 0;
+  line-height: 1.12;
+  letter-spacing: .02em;
   position: absolute;
-  left: 35%;
+  left: 37%;
   top: 52%;
   pointer-events: none;
 }
@@ -1750,6 +1761,7 @@ html, body {
 }
 
 .text-block-3 {
+  --paper-scale: 1;
   cursor: pointer;
   width: clamp(190px, 20vw, 250px);
   margin: 0;
@@ -1760,7 +1772,8 @@ html, body {
   inset: auto auto auto auto;
   left: calc(var(--bio-paper-left) + var(--bio-text-offset-x));
   top: calc(var(--bio-paper-top) + var(--bio-text-offset-y));
-  animation: bio-paper-wiggle 3.2s ease-in-out infinite;
+  transform-origin: calc(var(--bio-text-offset-x) * -1) calc(var(--bio-text-offset-y) * -1);
+  animation: bio-paper-wiggle 2.2s ease-in-out infinite;
   will-change: transform;
 }
 
@@ -1779,24 +1792,28 @@ html, body {
 }
 
 @keyframes bio-paper-wiggle {
-  0%, 68%, 100% {
-    transform: translate3d(0, 0, 0);
+  0%, 54%, 100% {
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(var(--paper-scale, 1));
   }
 
-  74% {
-    transform: translate3d(0, -7px, 0);
+  61% {
+    transform: translate3d(-5px, -2px, 0) rotate(-1.8deg) scale(var(--paper-scale, 1));
   }
 
-  80% {
-    transform: translate3d(0, 6px, 0);
+  68% {
+    transform: translate3d(5px, 2px, 0) rotate(1.8deg) scale(var(--paper-scale, 1));
   }
 
-  86% {
-    transform: translate3d(0, -4px, 0);
+  75% {
+    transform: translate3d(-4px, -1px, 0) rotate(-1.2deg) scale(var(--paper-scale, 1));
   }
 
-  92% {
-    transform: translate3d(0, 2px, 0);
+  82% {
+    transform: translate3d(3px, 1px, 0) rotate(1.1deg) scale(var(--paper-scale, 1));
+  }
+
+  89% {
+    transform: translate3d(-2px, 0, 0) rotate(-.7deg) scale(var(--paper-scale, 1));
   }
 }
 
@@ -2296,19 +2313,19 @@ html, body {
   }
 
   .grow-slogan {
-    left: 35%;
+    left: 36.5%;
     top: 52%;
-    width: 61%;
+    width: 61.5%;
     font-size: clamp(17px, 2.45vw, 24px);
-    line-height: 1.08;
+    line-height: 1.12;
   }
 
   .bloom-slogan {
-    left: 35%;
+    left: 36.5%;
     top: 52%;
     width: 62%;
     font-size: clamp(15px, 2.2vw, 22px);
-    line-height: 1.08;
+    line-height: 1.12;
   }
 
   .product-detail-hero {
@@ -2512,19 +2529,19 @@ html, body {
   }
 
   .grow-slogan {
-    left: 33%;
+    left: 35%;
     top: 52%;
-    width: 65%;
+    width: 63%;
     font-size: clamp(18px, 4vw, 28px);
-    line-height: 1.08;
+    line-height: 1.12;
   }
 
   .bloom-slogan {
-    left: 33%;
+    left: 35%;
     top: 52%;
-    width: 66%;
+    width: 64%;
     font-size: clamp(16px, 3.55vw, 25px);
-    line-height: 1.08;
+    line-height: 1.12;
   }
 
   .product-detail-hero {
@@ -2785,19 +2802,19 @@ html, body {
   }
 
   .grow-slogan {
-    left: 32%;
+    left: 33.5%;
     top: 51%;
-    width: 68%;
+    width: 65%;
     font-size: clamp(16px, 5.4vw, 24px);
-    line-height: 1.08;
+    line-height: 1.12;
   }
 
   .bloom-slogan {
-    left: 32%;
+    left: 33.5%;
     top: 51%;
-    width: 68%;
+    width: 65%;
     font-size: clamp(14px, 4.7vw, 21px);
-    line-height: 1.08;
+    line-height: 1.12;
   }
 
   .product-detail-hero {
@@ -2924,7 +2941,7 @@ html, body {
     --myko-field-left: clamp(18px, 5.8vw, 32px);
     --myko-field-bottom: clamp(26px, 7vw, 46px);
     --myko-field-width: clamp(105px, 26vw, 137px);
-    background-image: url('../images/Wirkungsweise-mobile.webp?v=20260902-product-mobile-pages');
+    background-image: url('../images/Wirkungsweise-mobile.webp?v=20260903-wiggle-slogans');
     background-position: 100% 0;
     background-size: auto 100%;
     height: clamp(820px, 165.3vw, 910px);
@@ -2952,7 +2969,7 @@ html, body {
   }
 
   .image-myko-textfeld {
-    content: url('../images/Myko-Textfeld-klein.webp?v=20260902-product-mobile-pages');
+    content: url('../images/Myko-Textfeld-klein.webp?v=20260903-wiggle-slogans');
   }
 
   .myko-text-block {
@@ -2993,7 +3010,7 @@ html, body {
   }
 
   .pop-up-bio-item {
-    background-image: url('../images/bio-popup-textfeld-mobile.webp?v=20260902-product-mobile-pages');
+    background-image: url('../images/bio-popup-textfeld-mobile.webp?v=20260903-wiggle-slogans');
     background-position: 50%;
     aspect-ratio: 1080 / 2400;
     width: min(86vw, 390px);
@@ -3053,6 +3070,12 @@ html, body {
 @media screen and (max-width: 430px) {
   .section-4 {
     --myko-field-left: clamp(11px, calc(39px - 6.7vw), 15px);
+  }
+}
+
+@media screen and (max-width: 429px) {
+  .section-4 {
+    --myko-field-left: clamp(0px, calc(18px - 4vw), 4px);
   }
 }
 
