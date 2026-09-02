@@ -357,6 +357,46 @@
       return element && window.getComputedStyle(element).display !== "none";
     }
 
+    var popupHistoryKey = "groweasyPopup";
+    var popupHistoryActive = false;
+
+    function isPopupHistoryState() {
+      return Boolean(window.history && window.history.state && window.history.state[popupHistoryKey]);
+    }
+
+    function rememberPopupHistory(name) {
+      var nextState;
+
+      if (!window.history || isPopupHistoryState()) {
+        popupHistoryActive = true;
+        return;
+      }
+
+      nextState = Object.assign({}, window.history.state || {});
+      nextState[popupHistoryKey] = name;
+      popupHistoryActive = true;
+      window.history.pushState(nextState, "", window.location.href);
+    }
+
+    function releasePopupHistory() {
+      if (isPopupHistoryState()) {
+        popupHistoryActive = false;
+        window.history.back();
+        return;
+      }
+
+      popupHistoryActive = false;
+    }
+
+    function closeBioPopup() {
+      if (!popup) {
+        return;
+      }
+
+      popup.style.display = "none";
+      popup.setAttribute("aria-hidden", "true");
+    }
+
     function openMykoPopup(event) {
       if (!mykoPopup) {
         return;
@@ -365,12 +405,13 @@
       event.preventDefault();
       mykoPopup.style.display = "flex";
       mykoPopup.setAttribute("aria-hidden", "false");
+      rememberPopupHistory("myko");
       if (mykoPopupClose) {
         mykoPopupClose.focus();
       }
     }
 
-    function closeMykoPopup() {
+    function closeMykoPopup(shouldReleaseHistory) {
       if (!mykoPopup) {
         return;
       }
@@ -379,6 +420,10 @@
       mykoPopup.setAttribute("aria-hidden", "true");
       if (mykoPopupTrigger) {
         mykoPopupTrigger.focus();
+      }
+
+      if (shouldReleaseHistory !== false) {
+        releasePopupHistory();
       }
     }
 
@@ -435,6 +480,16 @@
     if (mykoPopupClose) {
       mykoPopupClose.addEventListener("click", closeMykoPopup);
       addKeyboardClick(mykoPopupClose, closeMykoPopup);
+    }
+
+    if (popupTrigger) {
+      popupTrigger.addEventListener("click", function () {
+        window.setTimeout(function () {
+          if (isVisible(popup)) {
+            rememberPopupHistory("bio");
+          }
+        }, 40);
+      });
     }
 
     if (schemaOpenButton) {
@@ -599,13 +654,34 @@
 
       if (isVisible(popup) && popupClose) {
         popupClose.click();
+        releasePopupHistory();
       }
     });
 
     if (popupClose) {
+      popupClose.addEventListener("click", function () {
+        window.setTimeout(releasePopupHistory, 40);
+      });
+
       addKeyboardClick(popupClose, function () {
         popupClose.click();
       });
     }
+
+    window.addEventListener("popstate", function () {
+      if (!popupHistoryActive) {
+        return;
+      }
+
+      if (isVisible(mykoPopup)) {
+        closeMykoPopup(false);
+      }
+
+      if (isVisible(popup)) {
+        closeBioPopup();
+      }
+
+      popupHistoryActive = false;
+    });
   });
 }());
