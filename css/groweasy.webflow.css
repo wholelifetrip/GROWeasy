@@ -1571,6 +1571,7 @@ html, body {
   border: 2px solid #2b9f83;
   border-radius: 8px;
   align-items: center;
+  justify-content: space-between;
   gap: 10px;
   width: clamp(160px, 16vw, 230px);
   min-height: 72px;
@@ -1583,6 +1584,14 @@ html, body {
   bottom: 18px;
   box-shadow: 0 5px 16px #00000030;
   transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease;
+}
+
+.product-switch-text {
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-items: center;
+  min-width: 0;
+  display: flex;
 }
 
 .product-switch-button:hover {
@@ -1598,6 +1607,7 @@ html, body {
 
 .product-switch-label {
   color: #f6fff9;
+  text-align: center;
   text-transform: uppercase;
   font-family: ImpactLocal, ImpactCondensed, Oswald, Impact, "Arial Narrow", sans-serif;
   font-size: clamp(13px, 1.25vw, 18px);
@@ -1607,7 +1617,7 @@ html, body {
 
 .product-switch-logo {
   flex: 0 1 auto;
-  width: 46%;
+  width: 100%;
   max-width: 92px;
   height: auto;
   object-fit: contain;
@@ -2969,7 +2979,7 @@ html, body {
     --myko-field-left: clamp(18px, 5.8vw, 32px);
     --myko-field-bottom: clamp(26px, 7vw, 46px);
     --myko-field-width: clamp(105px, 26vw, 137px);
-    background-image: url('../images/Wirkungsweise-mobile.webp?v=20260904-section4-switch-tune');
+    background-image: url('../images/Wirkungsweise-mobile.webp?v=20260905-product-switch-stack');
     background-position: 100% 0;
     background-size: auto 100%;
     height: clamp(820px, 165.3vw, 910px);
@@ -2997,7 +3007,7 @@ html, body {
   }
 
   .image-myko-textfeld {
-    content: url('../images/Myko-Textfeld-klein.webp?v=20260904-section4-switch-tune');
+    content: url('../images/Myko-Textfeld-klein.webp?v=20260905-product-switch-stack');
   }
 
   .myko-text-block {
@@ -3038,7 +3048,7 @@ html, body {
   }
 
   .pop-up-bio-item {
-    background-image: url('../images/bio-popup-textfeld-mobile.webp?v=20260904-section4-switch-tune');
+    background-image: url('../images/bio-popup-textfeld-mobile.webp?v=20260905-product-switch-stack');
     background-position: 50%;
     aspect-ratio: 1080 / 2400;
     width: min(86vw, 390px);
@@ -3129,4 +3139,5 @@ html, body {
   font-style: normal;
   font-display: swap;
 }
+
 
