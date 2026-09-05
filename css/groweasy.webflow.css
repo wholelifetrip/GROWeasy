@@ -2979,7 +2979,7 @@ html, body {
     --myko-field-left: clamp(18px, 5.8vw, 32px);
     --myko-field-bottom: clamp(26px, 7vw, 46px);
     --myko-field-width: clamp(105px, 26vw, 137px);
-    background-image: url('../images/Wirkungsweise-mobile.webp?v=20260905-product-switch-stack');
+    background-image: url('../images/Wirkungsweise-mobile.webp?v=20260905-popup-product-mobile-tune');
     background-position: 100% 0;
     background-size: auto 100%;
     height: clamp(820px, 165.3vw, 910px);
@@ -3007,7 +3007,7 @@ html, body {
   }
 
   .image-myko-textfeld {
-    content: url('../images/Myko-Textfeld-klein.webp?v=20260905-product-switch-stack');
+    content: url('../images/Myko-Textfeld-klein.webp?v=20260905-popup-product-mobile-tune');
   }
 
   .myko-text-block {
@@ -3048,7 +3048,7 @@ html, body {
   }
 
   .pop-up-bio-item {
-    background-image: url('../images/bio-popup-textfeld-mobile.webp?v=20260905-product-switch-stack');
+    background-image: url('../images/bio-popup-textfeld-mobile.webp?v=20260905-popup-product-mobile-tune');
     background-position: 50%;
     aspect-ratio: 1080 / 2400;
     width: min(86vw, 390px);
@@ -3128,6 +3128,201 @@ html, body {
     inset: 11% auto 28.5% 14%;
     font-size: clamp(10.2px, 2.95vw, 11.8px);
     line-height: 1.22;
+  }
+}
+
+.pop-up-bio .pop-up-bio-item {
+  background-image: url('../images/popup-bio-desktop.webp?v=20260905-popup-product-mobile-tune');
+  aspect-ratio: 1478 / 992;
+  width: min(94vw, 1120px);
+  max-width: none;
+  max-height: calc(100vh - 44px);
+  margin-top: 0;
+}
+
+.pop-up-myko .pop-up-bio-item {
+  background-image: url('../images/popup-myko-desktop.webp?v=20260905-popup-product-mobile-tune');
+  aspect-ratio: 1478 / 992;
+}
+
+.pop-up-bio,
+.pop-up-myko {
+  align-items: center;
+  padding: clamp(16px, 2vw, 24px);
+}
+
+.image-4 {
+  width: clamp(30px, 2.8vw, 42px);
+  padding: 4px;
+  background-color: #f6fff9e6;
+  border-radius: 999px;
+  box-shadow: 0 3px 12px #123a3140;
+  inset: 6.5% 7% auto auto;
+}
+
+.text-block-2 {
+  width: 64%;
+  max-height: 47%;
+  margin: 8.4% 0 0 15.5%;
+  font-size: clamp(15px, 1.35vw, 19px);
+  line-height: 1.42;
+}
+
+.myko-popup-text {
+  width: 61%;
+  max-height: 45%;
+  margin-left: 18%;
+}
+
+@media screen and (max-width: 824px) {
+  .pop-up-bio,
+  .pop-up-myko {
+    align-items: center;
+    padding: 12px;
+  }
+
+  .pop-up-bio .pop-up-bio-item {
+    background-image: url('../images/popup-bio-mobile.webp?v=20260905-popup-product-mobile-tune');
+    aspect-ratio: 1000 / 1600;
+  }
+
+  .pop-up-myko .pop-up-bio-item {
+    background-image: url('../images/popup-myko-mobile.webp?v=20260905-popup-product-mobile-tune');
+    aspect-ratio: 1000 / 1600;
+  }
+
+  .pop-up-bio-item {
+    width: min(90vw, 430px);
+    max-width: calc((100vh - 40px) * .625);
+    max-height: calc(100vh - 40px);
+    margin-top: 0;
+  }
+
+  .image-4 {
+    width: clamp(28px, 6vw, 38px);
+    padding: 4px;
+    inset: 5.2% 8% auto auto;
+  }
+
+  .text-block-2,
+  .myko-popup-text {
+    position: absolute;
+    inset: 11.5% auto 26% 13%;
+    flex-direction: column;
+    justify-content: center;
+    width: 73%;
+    height: auto;
+    max-height: none;
+    margin: 0;
+    padding-right: 1.5%;
+    overflow-y: auto;
+    font-size: clamp(12.2px, 2.15vw, 15.8px);
+    line-height: 1.25;
+    display: flex;
+  }
+
+  .text-block-2 p {
+    margin-bottom: .56em;
+  }
+
+  .text-block-2 strong {
+    font-size: 1.18em;
+  }
+
+  .text-block-2 .bio-popup-slogan {
+    width: 96%;
+    font-size: clamp(13.5px, 2.6vw, 17px);
+    line-height: 1.16;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .bloom-detail-scroll,
+  .grow-detail-scroll {
+    font-size: clamp(10.4px, 2.55vw, 16.2px);
+    line-height: 1.1;
+  }
+
+  .product-detail-page .product-switch-button {
+    width: clamp(172px, 45vw, 220px);
+    min-height: 62px;
+    padding: 7px 9px;
+    right: 14px;
+    bottom: 10px;
+    gap: 6px;
+  }
+
+  .product-detail-page .product-switch-label {
+    font-size: clamp(10px, 2.8vw, 14px);
+    line-height: 1;
+  }
+
+  .product-detail-page .product-switch-logo {
+    max-width: 70px;
+  }
+
+  .product-detail-page .product-switch-pack {
+    max-width: 58px;
+    margin-right: -13px;
+    transform: translateY(-3px) scale(1.04);
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .pop-up-bio-item {
+    width: min(92vw, 390px);
+    max-width: calc((100vh - 36px) * .625);
+    max-height: calc(100vh - 36px);
+  }
+
+  .text-block-2,
+  .myko-popup-text {
+    inset: 11% auto 26.5% 13.5%;
+    width: 72%;
+    font-size: clamp(11.2px, 3vw, 13.4px);
+    line-height: 1.22;
+  }
+
+  .product-detail-page .product-switch-button {
+    width: clamp(164px, 48vw, 204px);
+    min-height: 58px;
+    padding: 7px 8px;
+    right: 12px;
+    bottom: 10px;
+  }
+
+  .product-detail-page .product-switch-label {
+    font-size: clamp(9.5px, 3vw, 12.5px);
+  }
+
+  .product-detail-page .product-switch-logo {
+    max-width: 62px;
+  }
+
+  .product-detail-page .product-switch-pack {
+    max-width: 52px;
+    margin-right: -12px;
+  }
+
+  .bloom-detail-scroll,
+  .grow-detail-scroll {
+    font-size: clamp(9.2px, 2.75vw, 12.4px);
+    line-height: 1.08;
+  }
+}
+
+@media screen and (max-width: 399px) {
+  .pop-up-bio-item {
+    width: min(94vw, 360px);
+    max-width: calc((100vh - 32px) * .625);
+  }
+
+  .text-block-2,
+  .myko-popup-text {
+    inset: 11.2% auto 27% 14%;
+    width: 72%;
+    font-size: clamp(10.6px, 3.1vw, 12.4px);
+    line-height: 1.2;
   }
 }
 
